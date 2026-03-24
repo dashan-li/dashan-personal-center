@@ -25,6 +25,15 @@ CLOUDINARY_STORAGE = {
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
 
-SECURE_SSL_REDIRECT = True
+# Vercel terminates TLS at the proxy level; tell Django to trust the forwarded header
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False  # Vercel handles HTTPS redirect, not Django
+
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+# Required by Django 4+ for CSRF validation on POST requests (e.g. admin login)
+CSRF_TRUSTED_ORIGINS = [
+    'https://dashan.vercel.app',
+    'https://personalcenter.vercel.app',
+]
