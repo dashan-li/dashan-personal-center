@@ -1,0 +1,61 @@
+# Chinese (Simplified) translations for personal_center
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_Hans\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Home"
+msgstr "首页"
+
+msgid "Experience"
+msgstr "经历"
+
+msgid "Blog"
+msgstr "博客"
+
+msgid "Perception Algorithm Engineer"
+msgstr "感知算法工程师"
+
+msgid "View Experience"
+msgstr "查看经历"
+
+msgid "Read Blog"
+msgstr "阅读博客"
+
+msgid "Skills"
+msgstr "技能"
+
+msgid "Recent Articles"
+msgstr "最近文章"
+
+msgid "See all"
+msgstr "查看全部"
+
+msgid "Work Experience"
+msgstr "工作经历"
+
+msgid "Education"
+msgstr "教育经历"
+
+msgid "Categories"
+msgstr "分类"
+
+msgid "Tags"
+msgstr "标签"
+
+msgid "All"
+msgstr "全部"
+
+msgid "Prev"
+msgstr "上一页"
+
+msgid "Next"
+msgstr "下一页"
+
+msgid "No articles yet. Check back soon."
+msgstr "暂无文章，敬请期待。"
+
+msgid "Back to Blog"
+msgstr "返回博客"

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Blog" %} — LI Xiaochuan{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div class="container">
+    <h1>{% trans "Blog" %}</h1>
+  </div>
+</div>
+
+<div class="container page-body">
+  <div class="blog-layout">
+
+    <!-- Article list -->
+    <div class="blog-main">
+      {% if page.object_list %}
+        <div class="articles-grid articles-grid-wide">
+          {% for article in page.object_list %}
+          <a href="{% url 'blog:detail' article.slug %}" class="article-card">
+            {% if article.cover_image %}
+            <div class="article-card-img" style="background-image: url('{{ article.cover_image.url }}')"></div>
+            {% else %}
+            <div class="article-card-img article-card-img-placeholder"></div>
+            {% endif %}
+            <div class="article-card-body">
+              {% if article.category %}
+              <span class="article-category">{{ article.category.name }}</span>
+              {% endif %}
+              <h2>{{ article.title }}</h2>
+              <div class="article-meta">
+                <time>{{ article.published_at|date:"Y-m-d" }}</time>
+                {% for tag in article.tags.all %}
+                <span class="tag-sm">{{ tag.name }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if page.has_other_pages %}
+        <div class="pagination">
+          {% if page.has_previous %}
+          <a href="?page={{ page.previous_page_number }}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}" class="page-btn">← {% trans "Prev" %}</a>
+          {% endif %}
+          <span class="page-info">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+          {% if page.has_next %}
+          <a href="?page={{ page.next_page_number }}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}" class="page-btn">{% trans "Next" %} →</a>
+          {% endif %}
+        </div>
+        {% endif %}
+
+      {% else %}
+        <div class="empty-state">
+          <p>{% trans "No articles yet. Check back soon." %}</p>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="blog-sidebar">
+      {% if categories %}
+      <div class="sidebar-section">
+        <h3>{% trans "Categories" %}</h3>
+        <ul class="sidebar-list">
+          <li>
+            <a href="{% url 'blog:list' %}" {% if not active_category %}class="active"{% endif %}>
+              {% trans "All" %}
+            </a>
+          </li>
+          {% for cat in categories %}
+          <li>
+            <a href="?category={{ cat.slug }}" {% if active_category.slug == cat.slug %}class="active"{% endif %}>
+              {{ cat.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if tags %}
+      <div class="sidebar-section">
+        <h3>{% trans "Tags" %}</h3>
+        <div class="tag-cloud">
+          {% for tag in tags %}
+          <a href="?tag={{ tag.slug }}" class="tag {% if active_tag.slug == tag.slug %}tag-active{% endif %}">{{ tag.name }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </aside>
+
+  </div>
+</div>
+{% endblock %}

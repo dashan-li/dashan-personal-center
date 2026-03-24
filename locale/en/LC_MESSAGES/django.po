@@ -1,0 +1,61 @@
+# English translations for personal_center
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Experience"
+msgstr "Experience"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Perception Algorithm Engineer"
+msgstr "Perception Algorithm Engineer"
+
+msgid "View Experience"
+msgstr "View Experience"
+
+msgid "Read Blog"
+msgstr "Read Blog"
+
+msgid "Skills"
+msgstr "Skills"
+
+msgid "Recent Articles"
+msgstr "Recent Articles"
+
+msgid "See all"
+msgstr "See all"
+
+msgid "Work Experience"
+msgstr "Work Experience"
+
+msgid "Education"
+msgstr "Education"
+
+msgid "Categories"
+msgstr "Categories"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "All"
+msgstr "All"
+
+msgid "Prev"
+msgstr "Prev"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "No articles yet. Check back soon."
+msgstr "No articles yet. Check back soon."
+
+msgid "Back to Blog"
+msgstr "Back to Blog"

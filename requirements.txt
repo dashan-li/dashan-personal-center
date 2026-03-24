@@ -1,0 +1,9 @@
+django>=6.0
+mistune>=3.0
+Pillow
+whitenoise
+python-dotenv
+psycopg2-binary
+cloudinary
+django-cloudinary-storage
+dj-database-url

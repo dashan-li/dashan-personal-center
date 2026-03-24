@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ article.title }} — LI Xiaochuan{% endblock %}
+
+{% block content %}
+<div class="container article-container">
+
+  <div class="article-header">
+    {% if article.category %}
+    <a href="{% url 'blog:list' %}?category={{ article.category.slug }}" class="article-category">
+      {{ article.category.name }}
+    </a>
+    {% endif %}
+    <h1 class="article-title">{{ article.title }}</h1>
+    <div class="article-meta">
+      <time>{{ article.published_at|date:"Y-m-d" }}</time>
+      {% for tag in article.tags.all %}
+      <a href="{% url 'blog:list' %}?tag={{ tag.slug }}" class="tag-sm">{{ tag.name }}</a>
+      {% endfor %}
+    </div>
+    {% if article.cover_image %}
+    <div class="article-cover">
+      <img src="{{ article.cover_image.url }}" alt="{{ article.title }}">
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="article-body prose">
+    {{ content_html|safe }}
+  </div>
+
+  <div class="article-footer">
+    <a href="{% url 'blog:list' %}" class="btn btn-outline">← {% trans "Back to Blog" %}</a>
+  </div>
+
+</div>
+{% endblock %}

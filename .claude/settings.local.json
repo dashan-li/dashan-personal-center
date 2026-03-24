@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(django-admin startproject:*)",
+      "Bash(python -m django startproject personal_center .)",
+      "Bash(python -m django startapp core apps/core)",
+      "Bash(python -m django startapp blog apps/blog)",
+      "Bash(python -m django compilemessages --settings=personal_center.settings.dev)",
+      "Bash(python manage.py makemigrations --settings=personal_center.settings.dev)",
+      "Bash(python manage.py migrate --settings=personal_center.settings.dev)",
+      "Bash(python manage.py collectstatic --noinput --settings=personal_center.settings.dev)",
+      "Bash(python manage.py check --settings=personal_center.settings.dev)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(curl -s http://localhost:8000/experience/)",
+      "Bash(curl -s http://localhost:8000/blog/)",
+      "Bash(curl -s http://localhost:8000/zh-hans/)",
+      "Bash(curl -s http://localhost:8000/admin/)",
+      "Bash(curl -s -L http://localhost:8000/admin/)",
+      "Read(//d/李小川/文件/cv/**)",
+      "Bash(pandoc \"D:/李小川/文件/cv/CV_LiXiaochuan_updated_2.docx\" -t plain)",
+      "Bash(python3 -c \":*)"
+    ]
+  }
+}
