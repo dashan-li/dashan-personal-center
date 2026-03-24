@@ -3,27 +3,7 @@ import os
 import dj_database_url
 
 DEBUG = False
-# Allow all *.vercel.app subdomains plus any custom hosts from env
-ALLOWED_HOSTS = ['*']  # Temporarily open for debugging; restrict after login is confirmed working
-
-MIDDLEWARE += ['personal_center.middleware.LoginDebugMiddleware']
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {'handlers': ['console'], 'level': 'DEBUG'},
-        'django.request': {'handlers': ['console'], 'level': 'DEBUG'},
-        'django.security': {'handlers': ['console'], 'level': 'DEBUG'},
-        'django.contrib.auth': {'handlers': ['console'], 'level': 'DEBUG'},
-        'django.contrib.sessions': {'handlers': ['console'], 'level': 'DEBUG'},
-    },
-}
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'dashan.vercel.app').split(',')
 
 # Database — Neon PostgreSQL via DATABASE_URL env var
 DATABASES = {
